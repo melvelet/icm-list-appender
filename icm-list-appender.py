@@ -29,8 +29,7 @@ class ICMListAppender:
             if entry not in self.imdb_urls:
                 self.imdb_urls.append(entry)
 
-        if self.all_editions:
-            self.list_starts.append((list_start, len(self.imdb_urls), name))
+        self.list_starts.append((list_start, len(self.imdb_urls), name))
 
     def print_results_to_file(self, directory):
         with open(directory + '/results.txt', 'w') as file:
