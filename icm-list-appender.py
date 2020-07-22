@@ -33,9 +33,9 @@ class ICMListAppender:
 
     def print_results_to_file(self, directory):
         with open(directory + '/results.txt', 'w') as file:
-            digits = '0' + str(len(str(self.list_starts[-1][1])))
+            digits = len(str(self.list_starts[-1][1]))
             for start, end, list_name in self.list_starts:
-                file.write(f"#{format(start, digits)}-#{format(end, digits)}: Last in {list_name}\n")
+                file.write(f"#{str(start).zfill(digits)}-#{str(end).zfill(digits)}: Last in {list_name}\n")
             if self.list_starts:
                 file.write('\n\n\n')
 
